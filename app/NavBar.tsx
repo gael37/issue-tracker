@@ -68,23 +68,32 @@ const AuthStatus = () => {
 
   if (status === "unauthenticated")
     return (
-      <Link className="nav-link" href="/api/auth/signin">
-        Login
-      </Link>
+      <Flex>
+        <Link className="nav-link" href="/api/auth/signin">
+          Login
+        </Link>
+        <Link className="nav-link" href="/register">
+          Register
+        </Link>
+      </Flex>
     );
 
   return (
     <Box>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
-          <Avatar
-            src={session!.user!.image!}
-            fallback="?"
-            size="2"
-            radius="full"
-            className="cursor-pointer"
-            referrerPolicy="no-referrer"
-          />
+          <Flex>
+            <Avatar
+              src={session!.user!.image!}
+              fallback="🧑🏻‍💻"
+              size="4"
+              radius="full"
+              className="cursor-pointer"
+              referrerPolicy="no-referrer"
+            />
+            {/* <p>{session!.user!.}</p> */}
+          </Flex>
+
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Label>
