@@ -5,11 +5,11 @@ import IssueStatusFilter from './IssueStatusFilter';
 
 const IssueActions = () => {
   return (
-    <Flex justify="between">
+    <Flex justify="start" gap='7' align='center' className='mb-3'>
       <IssueStatusFilter />
-      <Button>
-        <Link href="/issues/new">New Issue</Link>
-      </Button>
+
+      <Link href="/issues/new" className='button-link-new'>+ New Issue</Link>
+
     </Flex>
   );
 };

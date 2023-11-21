@@ -30,10 +30,12 @@ export default function RootLayout({
           <AuthProvider>
             <Theme accentColor="violet">
               <NavBar />
-              <main className="p-5">
-                <Container>{children}</Container>
+              <main className="max-w-6xl pt-10 mx-auto">
+                <div>{children}</div>
               </main>
+              {/* <ThemePanel /> */}
             </Theme>
+
           </AuthProvider>
         </QueryClientProvider>
       </body>

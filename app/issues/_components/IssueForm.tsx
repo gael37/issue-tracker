@@ -4,43 +4,64 @@ import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
 import { issueSchema } from '@/app/validationSchemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Issue } from '@prisma/client';
-import { Button, Callout, TextField } from '@radix-ui/themes';
+import { Issue, Status } from '@prisma/client';
+import { Button, Callout, Select, TextField } from '@radix-ui/themes';
 import axios from 'axios';
 import 'easymde/dist/easymde.min.css';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import SimpleMDE from 'react-simplemde-editor';
 import { z } from 'zod';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-type IssueFormData = z.infer<typeof issueSchema>;
+
+
+// type IssueFormData = z.infer<typeof issueSchema>;
+type IssueFormData = {
+  title: string
+  description: string
+  status: Status
+}
 
 const IssueForm = ({ issue }: { issue?: Issue }) => {
+
   const router = useRouter();
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IssueFormData>({
-    resolver: zodResolver(issueSchema),
-  });
+
   const [error, setError] = useState('');
   const [isSubmitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    title: issue?.title || '',
+    description: issue?.description || '',
+    status: issue?.status || 'OPEN'
+  })
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
+      console.log('form to submit ', form)
       setSubmitting(true);
-      if (issue) await axios.patch('/api/issues/' + issue.id, data);
-      else await axios.post('/api/issues', data);
+      let result
+      if (issue) {
+        result = await axios.patch('/api/issues/' + issue.id, form);
+      }
+      else await axios.post('/api/issues', form);
       router.push('/issues/list');
       router.refresh();
+      console.log('data posted: ', result)
     } catch (error) {
       setSubmitting(false);
       setError('An unexpected error occurred.');
     }
-  });
+  }
+
+  const options = ['OPEN', 'IN_PROGRESS', 'CLOSED'];
+
+  // const [selectedOption, setSelectedOption] = useState<string>(form.status || 'OPEN');
+
+  // const changeTitle = (e: HTMLInputElement) => {
+  //   const { value } = e.target;
+  //   setForm({ ...form, 'title': value });
+  // };
 
   return (
     <div className="max-w-xl">
@@ -50,23 +71,45 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
         </Callout.Root>
       )}
       <form className="space-y-3" onSubmit={onSubmit}>
+
         <TextField.Root>
           <TextField.Input
-            defaultValue={issue?.title}
+            name='title'
             placeholder="Title"
-            {...register('title')}
+            value={form.title}
+            onChange={() => setForm({ ...form, 'title': form.title })}
           />
         </TextField.Root>
-        <ErrorMessage>{errors.title?.message}</ErrorMessage>
-        <Controller
-          name="description"
-          control={control}
-          defaultValue={issue?.description}
-          render={({ field }) => (
-            <SimpleMDE placeholder="Description" {...field} />
-          )}
+        <ErrorMessage>{error}</ErrorMessage>
+
+        <SimpleMDE placeholder="Description" value={form.description} onChange={() => setForm({ ...form, 'description': form.description })}
         />
-        <ErrorMessage>{errors.description?.message}</ErrorMessage>
+        <ErrorMessage>{error}</ErrorMessage>
+
+
+
+        <Select.Root
+          value={form.status}
+          onValueChange={(value: Status) => {
+            setForm({ ...form, 'status': value })
+          }}
+        >
+          <Select.Trigger placeholder="Status..." />
+          <Select.Content>
+            <Select.Group>
+              <Select.Label>Suggestions</Select.Label>
+              {options.map((option) => (
+                <Select.Item key={option} value={option} >
+                  {option}
+                </Select.Item>
+              ))}
+            </Select.Group>
+          </Select.Content>
+        </Select.Root>
+
+
+
+
         <Button disabled={isSubmitting}>
           {issue ? 'Update Issue' : 'Submit New Issue'}{' '}
           {isSubmitting && <Spinner />}

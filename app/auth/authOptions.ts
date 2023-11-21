@@ -5,6 +5,7 @@ import prisma from '@/prisma/client';
 import { NextAuthOptions } from 'next-auth';
 import bcrypt from 'bcrypt'
 
+
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -29,6 +30,7 @@ const authOptions: NextAuthOptions = {
       }
     }),
     GoogleProvider({
+      name: 'google',
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
@@ -36,6 +38,15 @@ const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
+  theme: {
+    colorScheme: "light", // "auto" | "dark" | "light"
+    brandColor: "#265d2d", // Hex color code
+    logo: 'https://wallpapercave.com/wp/wp4291093.jpg', // Absolute URL to image
+    buttonText: "#265d2d" // Hex color code
+  },
+  pages: {
+    signIn: '/login',
+  }
 };
 
 export default authOptions;

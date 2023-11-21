@@ -29,7 +29,7 @@ const Pagination = ({
   }
 
   return (
-    <Flex align="center" gap="2">
+    <Flex align="center" gap="2" className='max-w-7xl mx-auto pt-5 mb-5'>
       <Text size="2">
         Page {currentPage} of {pageCount}
       </Text>
