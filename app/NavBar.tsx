@@ -48,7 +48,7 @@ const NavLinks = () => {
   const currentPath = usePathname();
 
   const links = [
-    { label: "Dashboard", href: "/dashboard" },
+    { label: "Dashboard", href: "/" },
     { label: "Issues", href: "/issues/list" },
   ];
 
@@ -80,7 +80,7 @@ const AuthStatus = () => {
       setSubmitting(true);
 
       const result = await signOut()
-      router.push('/dashboard')
+      router.push('/')
     }
     catch (error) {
       console.log('erros when logging out', error)

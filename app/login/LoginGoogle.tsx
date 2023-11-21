@@ -24,7 +24,7 @@ const LoginGoogle = () => {
         callbackUrl: '/issues/list'
       })
       console.log('signed in with Google result', result)
-      router.push('/issues/list')
+      // router.push('/issues/list')
     } catch (error) {
       console.log('erros when submitting the login form', error)
       setSubmitting(false);
