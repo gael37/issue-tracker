@@ -34,7 +34,7 @@ const RegistrationForm: React.FC = () => {
     try {
       const data = await axios.post('/api/register/', formData)
       console.log('form posted', data)
-      router.push('/login')
+      // router.push('/login')
     } catch (error) {
       console.log('erros when submitting the register form', error)
     }

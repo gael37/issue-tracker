@@ -39,7 +39,7 @@ const LoginCredentials = ({ email, password }: Props) => {
       )
       console.log('signed in with credentisls result', result)
       // setError('')
-      router.push('/issues/list')
+      // router.push('/issues/list')
     } catch (error) {
       console.log('erros when submitting the login form', error)
       setSubmitting(false);

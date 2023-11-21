@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
     try {
       const result = await signIn('credentials')
       console.log('signed in data', result)
-      router.push('/issues/list')
+      // router.push('/issues/list')
     } catch (error) {
       console.log('erros when submitting the login form', error)
     }
