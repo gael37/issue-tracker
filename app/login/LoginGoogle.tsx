@@ -20,11 +20,11 @@ const LoginGoogle = () => {
       setSubmitting(true);
 
       const result = await signIn('google', {
-        redirect: true,
-        callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
+        // redirect: true,
+        // callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
       })
       console.log('signed in with Google result', result)
-      // router.push('/issues/list')
+      router.push('/issues/list')
     } catch (error) {
       console.log('erros when submitting the login form', error)
       setSubmitting(false);

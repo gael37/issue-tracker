@@ -37,11 +37,11 @@ body {
   }
 
   .button-link-login {
-    @apply text-black border-2 border-violet-800 bg-white hover:scale-110 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
+    @apply text-black border-2 border-violet-800 bg-white hover:bg-blue-300 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
   }
 
   .button-link-google {
-    @apply text-black border-2 border-black bg-white hover:scale-110 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
+    @apply text-black border-2 border-black bg-white hover:bg-blue-300 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
   }
 
   .button-table {
