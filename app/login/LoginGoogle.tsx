@@ -21,7 +21,7 @@ const LoginGoogle = () => {
 
       const result = await signIn('google', {
         redirect: true,
-        callbackUrl: '/issues/list'
+        callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
       })
       console.log('signed in with Google result', result)
       // router.push('/issues/list')

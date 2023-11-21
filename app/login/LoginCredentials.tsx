@@ -34,7 +34,7 @@ const LoginCredentials = ({ email, password }: Props) => {
         email,
         password,
         redirect: true,
-        callbackUrl: 'http://localhost:3000/issues/list'
+        callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
       },
       )
       console.log('signed in with credentisls result', result)
