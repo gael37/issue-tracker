@@ -19,6 +19,7 @@ import {
   Button,
   Container,
   DropdownMenu,
+  DropdownMenuItem,
   Flex,
   Text,
 } from "@radix-ui/themes";
@@ -52,6 +53,17 @@ const NavBar = () => {
                 </Flex>
               </DropdownMenu.Trigger>
               <DropdownMenu.Content>
+                <DropdownMenu.Item>
+                  <Link
+                    className={classnames({
+                      "": true,
+                      "!text-blue-900": "/" === currentPath,
+                    })}
+                    href="/"
+                  >
+                    Home
+                  </Link>
+                </DropdownMenu.Item>
                 {links.map((link) => (
                   <DropdownMenu.Item key={link.href}>
                     <Link
