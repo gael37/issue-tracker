@@ -35,8 +35,8 @@ const IssuesPage = async ({ searchParams }: Props) => {
   const issueCount = await prisma.issue.count({ where });
 
   return (
-    <section className='landing-section'>
-      <div className='max-w-6xl pt-10 mx-auto'>
+    <section className='landing-section-list'>
+      <div className='max-w-6xl  mx-auto p-5 pt-10'>
         <Flex direction="column" gap="3">
           <IssueActions />
           <IssueTable searchParams={searchParams} issues={issues} />

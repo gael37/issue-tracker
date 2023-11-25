@@ -8,6 +8,10 @@ import { AiFillBug } from "react-icons/ai";
 import classnames from "classnames";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { LiaBugSolid } from "react-icons/lia";
+import { RiUser3Line } from "react-icons/ri";
+import { LuMenuSquare } from "react-icons/lu";
+
+
 
 import {
   Avatar,
@@ -29,12 +33,43 @@ import { FaChevronDown } from "react-icons/fa6";
 
 
 const NavBar = () => {
+  const currentPath = usePathname();
 
+  const links = [
+    // { label: "logo", href: "/landing" },
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Issues", href: "/issues/list" },
+  ];
   return (
-    <nav className="bg-slate-200">
+    <nav className="bg-slate-200 px-5">
       <Container className="">
         <Flex justify="between" className="items-center h-16">
-          <Flex align="center" gap="3">
+          <Box className="md:hidden">
+            <DropdownMenu.Root>
+              <DropdownMenu.Trigger>
+                <Flex align='center' gap='2' className="hover:cursor-pointer">
+                  <LuMenuSquare size='40' />
+                </Flex>
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Content>
+                {links.map((link) => (
+                  <DropdownMenu.Item key={link.href}>
+                    <Link
+                      className={classnames({
+                        "": true,
+                        "!text-blue-900": link.href === currentPath,
+                      })}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
+                  </DropdownMenu.Item>
+                ))}
+
+              </DropdownMenu.Content>
+            </DropdownMenu.Root>
+          </Box>
+          <Flex align="center" gap="3" className="sm: hidden md:flex">
             {/* <Link href="/">
               <Image src={bug} alt='ladybird logo' className="rounded-full w-10 h-10" />
             </Link> */}
@@ -126,7 +161,7 @@ const AuthStatus = () => {
 
             <Avatar
               src={session!.user!.image!}
-              fallback={<Image src={img} alt='user' />}
+              fallback={<RiUser3Line />}
               size="2"
               radius="full"
               className="cursor-pointer"

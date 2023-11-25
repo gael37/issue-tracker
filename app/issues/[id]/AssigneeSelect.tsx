@@ -2,20 +2,21 @@
 
 import { Skeleton } from "@/app/components";
 import { Issue, User } from "@prisma/client";
-import { Select } from "@radix-ui/themes";
+import { Flex, Heading, Select, Text } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter()
 
-  const { data: users, error, isLoading } = useUsers();
+  // const { data: users, error, isLoading } = useUsers();
 
-  if (isLoading) return <Skeleton />;
+  // if (isLoading) return <Skeleton />;
 
-  if (error) return null;
+  // if (error) return null;
   const assignIssue = (userId: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
@@ -26,6 +27,23 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       });
     router.refresh();
   };
+
+  const [users, setUsers] = useState<any[]>([])
+
+  const getUsers = async () => {
+    try {
+      const { data } = await axios.get('/api/users')
+      console.log(data)
+      setUsers(data)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+  useEffect(() => {
+    getUsers()
+  }, [])
+
 
   return (
     <>
@@ -39,7 +57,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
           <Select.Group>
             <Select.Label>Suggestions</Select.Label>
             <Select.Item value="">Unassigned</Select.Item>
-            {users?.map((user) => (
+            {users && users.map((user) => (
               <Select.Item key={user.id} value={user.id}>
                 {user.name}
               </Select.Item>
@@ -52,13 +70,13 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   );
 };
 
-const useUsers = () =>
-  useQuery<User[]>({
-    queryKey: ["users"],
-    queryFn: () =>
-      axios.get("/api/users").then((res) => res.data),
-    staleTime: 60 * 1000, //60s
-    retry: 3,
-  });
+// const useUsers = () =>
+//   useQuery<User[]>({
+//     queryKey: ["users"],
+//     queryFn: () =>
+//       axios.get("/api/users").then((res) => res.data),
+//     staleTime: 60 * 1000, //60s
+//     retry: 3,
+//   });
 
 export default AssigneeSelect;

@@ -110,6 +110,36 @@ body {
     background-position: center;
   }
 
+  .landing-section-dashboard {
+    background-image: url('../assets/bg-land.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    /* height: calc(100vh - 64px); */
+    height: 130vh;
+  }
+
+  .landing-section-home {
+    background-image: url('../assets/bg-land.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    /* height: calc(100vh - 64px); */
+    height: 140vh;
+  }
+
+  .landing-section-list {
+    background-image: url('../assets/bg-land.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    /* height: calc(100vh - 64px); */
+    height: 105vh;
+  }
+
   .landing-section {
     background-image: url('../assets/bg-land.avif');
     background-repeat: no-repeat;
@@ -117,6 +147,14 @@ body {
     background-position: center;
     width: 100vw;
     height: calc(100vh - 64px);
+    /* height: 130vh; */
+  }
+
+  .beautiful-bg {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .blue-bg {
