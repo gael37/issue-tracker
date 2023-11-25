@@ -29,7 +29,7 @@ const Pagination = ({
   }
 
   return (
-    <Flex align="center" gap="2" className='max-w-7xl mx-auto pt-5 mb-5'>
+    <Flex align="center" gap="2" className='max-w-7xl mx-auto pt-5 mb-5 text-white'>
       <Text size="2">
         Page {currentPage} of {pageCount}
       </Text>
@@ -39,7 +39,7 @@ const Pagination = ({
         disabled={currentPage === 1}
         onClick={() => changePage(1)}
       >
-        <DoubleArrowLeftIcon />
+        <DoubleArrowLeftIcon color='white' />
       </Button>
       <Button
         color="gray"
@@ -47,7 +47,7 @@ const Pagination = ({
         disabled={currentPage === 1}
         onClick={() => changePage(currentPage - 1)}
       >
-        <ChevronLeftIcon />
+        <ChevronLeftIcon color='white' />
       </Button>
       <Button
         color="gray"
@@ -55,7 +55,7 @@ const Pagination = ({
         disabled={currentPage === pageCount}
         onClick={() => changePage(currentPage + 1)}
       >
-        <ChevronRightIcon />
+        <ChevronRightIcon color='white' />
       </Button>
       <Button
         color="gray"
@@ -63,7 +63,7 @@ const Pagination = ({
         disabled={currentPage === pageCount}
         onClick={() => changePage(pageCount)}
       >
-        <DoubleArrowRightIcon />
+        <DoubleArrowRightIcon color='white' />
       </Button>
     </Flex>
   );

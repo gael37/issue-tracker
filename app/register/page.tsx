@@ -34,7 +34,7 @@ const RegistrationForm: React.FC = () => {
     try {
       const data = await axios.post('/api/register/', formData)
       console.log('form posted', data)
-      // router.push('/login')
+      router.push('/login')
     } catch (error) {
       console.log('erros when submitting the register form', error)
     }
@@ -42,90 +42,94 @@ const RegistrationForm: React.FC = () => {
   };
 
   return (
-    <div className="gap-0 border-2 rounded-2xl p-5 mb-4 flex flex-col items-center justify-center w-80 mx-auto from-violet-600 to-violet-500 bg-gradient-to-b"
-    >
-      <form
-        onSubmit={handleSubmit}
-        className='w-64 mx-auto mb-2'
-      >
-        <div className="mb-4">
-          <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
-            name *
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            placeholder="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
-            Email *
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-white text-sm font-bold mb-2" htmlFor="password">
-            Password *
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-white text-sm font-bold mb-2" htmlFor="confirmPassword">
-            Confirm Password *
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            name="passwordConfirmation"
-            value={formData.passwordConfirmation}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button
-          className="button-link-login w-full mx-auto block"
-          type="submit"
+    <section className='landing-section'>
+      <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
+        <div className="gap-5 border-2 rounded-2xl p-8  flex flex-col items-center justify-center w-80 mx-auto from-slate-100 to-slate-200 bg-gradient-to-b"
         >
-          Register
-        </button>
+          <form
+            onSubmit={handleSubmit}
+            className='w-64 mx-auto mb-2'
+          >
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="name">
+                name *
+              </label>
+              <input
+                className="shadow appearance-none border-thin rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="email">
+                Email *
+              </label>
+              <input
+                className="shadow appearance-none border-thin rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="password">
+                Password *
+              </label>
+              <input
+                className="shadow appearance-none border-thin rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="confirmPassword">
+                Confirm Password *
+              </label>
+              <input
+                className="shadow appearance-none border-thin rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                name="passwordConfirmation"
+                value={formData.passwordConfirmation}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button
+              className="button-link-login mt-5 w-full shadow-sm shadow-gray-400"
+              type="submit"
+            >
+              Register
+            </button>
 
 
-      </form>
+          </form>
 
-      {/* <p className='text-center font-semibold mb-3'>Or</p> */}
-      <LoginGoogle />
-      <Flex align='center' gap='5' className='mt-4'>
-        <p className='text-white '>Already an account?</p>
-        <Link href='/login' className='link'>Login</Link>
-      </Flex>
-    </div>
+          {/* <p className='text-center font-semibold mb-3'>Or</p> */}
+          <LoginGoogle />
+          <Flex align='center' gap='5' className='mt-4'>
+            <p className='text-black '>Already an account?</p>
+            <Link href='/login' className='link-2'>Login</Link>
+          </Flex>
+        </div>
+      </div>
+    </section>
   );
 };
 

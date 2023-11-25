@@ -1,7 +1,7 @@
 import prisma from '@/prisma/client';
 import { Avatar, Card, Flex, Heading, Table, Text } from '@radix-ui/themes';
 import React from 'react';
-import { IssueStatusBadge } from './components';
+import { IssueStatusBadge } from '../components';
 import Link from 'next/link';
 
 const LatestIssues = async () => {
@@ -17,7 +17,7 @@ const LatestIssues = async () => {
     <Card className='w-full h-full'>
       <Flex justify='between'>
         <Heading size="4" mb="5">Latest Issues</Heading>
-        <Text size="2" mb="5">Assigned to</Text>
+        {/* <Text size="2" mb="5">Assigned to</Text> */}
       </Flex>
       <Table.Root>
         <Table.Body>
@@ -31,18 +31,22 @@ const LatestIssues = async () => {
                     </Link>
                     <IssueStatusBadge status={issue.status} />
                   </Flex>
-                  {issue.assignedToUser && (
-                    <Flex align='center' justify='start' gap='1'>
-                      {/* <Avatar
+
+                  {/* <Avatar
                         src={issue.assignedToUser.image!}
                         fallback="👤"
                         size="2"
                         radius="full"
                       /> */}
-                      <p className='text-black'>{(issue.assignedToUser.name!).split(' ')[0]}</p>
-                    </Flex>
 
-                  )}
+                  {issue.assignedToUser ?
+
+                    <p className='text-white blue-bg b-2 rounded-2xl px-3 py-1 font-medium text-sm'>{(issue.assignedToUser.name!).split(' ')[0]}</p>
+                    :
+                    <p className='text-xs'>Unassigned</p>
+
+                  }
+
                 </Flex>
               </Table.Cell>
             </Table.Row>

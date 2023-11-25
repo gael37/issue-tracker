@@ -6,7 +6,9 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiFillBug } from "react-icons/ai";
 import classnames from "classnames";
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { LiaBugSolid } from "react-icons/lia";
+
 import {
   Avatar,
   Box,
@@ -20,6 +22,7 @@ import Image from "next/image";
 import bug from '@/assets/bug.jpeg';
 // import userLogo from '@/assets/user.png';
 import userlogo from '@/assets/user-logo.png';
+import bug5 from '@/assets/bug5.jpeg';
 import img from '@/assets/user3.png';
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -28,7 +31,7 @@ import { FaChevronDown } from "react-icons/fa6";
 const NavBar = () => {
 
   return (
-    <nav className="p-2 border-2 border-b-slate-200 ">
+    <nav className="bg-slate-200">
       <Container className="">
         <Flex justify="between" className="items-center h-16">
           <Flex align="center" gap="3">
@@ -48,26 +51,35 @@ const NavLinks = () => {
   const currentPath = usePathname();
 
   const links = [
-    { label: "Dashboard", href: "/" },
+    // { label: "logo", href: "/landing" },
+    { label: "Dashboard", href: "/dashboard" },
     { label: "Issues", href: "/issues/list" },
   ];
 
   return (
-    <ul className="flex space-x-6">
-      {links.map((link) => (
-        <li key={link.href}>
-          <Link
-            className={classnames({
-              "nav-link": true,
-              "!border-b-2 border-solid border-slate-400 p-2 text-black": link.href === currentPath,
-            })}
-            href={link.href}
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Link href='/'>
+        {/* <Image src={bug5} alt='bug5' width={50} /> */}
+        <LiaBugSolid size='30' />
+
+      </Link>
+      <ul className="flex space-x-6">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              className={classnames({
+                "nav-link": true,
+                "!border-b-2 border-solid border-slate-400 p-2 text-black": link.href === currentPath,
+              })}
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
+
   );
 };
 
@@ -79,8 +91,8 @@ const AuthStatus = () => {
     try {
       setSubmitting(true);
 
-      const result = await signOut()
-      router.push('/')
+      signOut({ callbackUrl: 'http://localhost:3000/issues/list' })
+      // router.push('/')
     }
     catch (error) {
       console.log('erros when logging out', error)
@@ -96,15 +108,14 @@ const AuthStatus = () => {
   if (status === "loading") return <Skeleton width="3rem" />;
 
   if (status === "unauthenticated")
+
     return (
-      <Flex gap='5'>
-        <Link href="/login">
-          <p className='button-link'>Login</p>
-        </Link>
-        {/* <Link href="/register">
-          <p className='button-link'>register</p>
-        </Link> */}
-      </Flex>
+
+      // <Button className="text-lg"><Link href="/login">Login</Link></Button>
+      <button className='button-link-3 cree'>
+        <Link href='/login'>Login</Link>
+      </button>
+
     );
 
   return (
@@ -116,12 +127,12 @@ const AuthStatus = () => {
             <Avatar
               src={session!.user!.image!}
               fallback={<Image src={img} alt='user' />}
-              size="4"
+              size="2"
               radius="full"
               className="cursor-pointer"
               referrerPolicy="no-referrer"
             />
-            <p className="text-black text-xl font-medium">Hi {session!.user!.name}!</p>
+            <p className="text-black text-sm font-medium">Hi {session!.user!.name}!</p>
             <FaChevronDown />
 
           </Flex>
@@ -131,9 +142,9 @@ const AuthStatus = () => {
           <DropdownMenu.Label>
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
-          <DropdownMenu.Item>
-            <Button onClick={handleLogout} className="button-link w-full hover:p-0"><p>Log out </p>{isSubmitting && <Spinner />}
-            </Button>
+          <DropdownMenu.Item className="">
+            <button onClick={handleLogout} className="mx-auto w-1/2" ><p>Log out </p>{isSubmitting && <Spinner />}
+            </button>
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>

@@ -25,23 +25,31 @@ body {
   }
 
   .nav-link {
-    @apply text-black hover:text-violet-700 text-xl hover:bg-white p-2 font-medium
+    @apply text-black hover:text-white text-xl hover:blue-bg p-2 hover:rounded-lg font-medium
   }
 
-  .link {
-    @apply text-white hover:scale-110 font-bold;
+  .link-2 {
+    @apply text-black hover:underline font-bold decoration-black;
   }
 
   .button-link {
-    @apply text-white bg-violet-600 hover:bg-violet-700 px-4 py-2 rounded-lg text-base font-medium active:scale-90;
+    @apply text-black orange-bg-2 hover:bg-violet-700 px-4 py-2 rounded-lg text-base font-medium active:scale-90;
+  }
+
+  .button-link-2 {
+    @apply text-black orange-bg-2 hover:orange-bg-3 px-9 py-4 shadow-md shadow-gray-700 rounded-md text-base font-medium active:scale-90;
+  }
+
+  .button-link-3 {
+    @apply text-black orange-bg-2 hover:orange-bg-3 px-5 py-2 shadow-md shadow-gray-600 rounded-md text-sm font-medium active:scale-90;
   }
 
   .button-link-login {
-    @apply text-black border-2 border-violet-800 bg-white hover:bg-blue-300 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
+    @apply text-black border-2 border-gray-800 bg-white hover:orange-bg-2 px-4 py-3 rounded-xl text-base font-medium;
   }
 
   .button-link-google {
-    @apply text-black border-2 border-black bg-white hover:bg-blue-300 px-4 py-3 rounded-xl text-base font-medium active:scale-90;
+    @apply text-black border-2 border-black bg-white hover:orange-bg-2 px-4 py-3 rounded-xl text-base font-medium;
   }
 
   .button-table {
@@ -53,7 +61,7 @@ body {
   } */
 
   .button-link-new {
-    @apply text-white bg-violet-600 hover:bg-violet-700 px-4 py-2 rounded-lg text-base font-medium active:scale-90;
+    @apply text-white orange-bg hover:bg-violet-700 px-4 py-2 rounded-lg text-base font-medium active:scale-90;
   }
 
   .button-link-bigger {
@@ -62,6 +70,29 @@ body {
 
   .bg-cubes {
     position: relative;
+  }
+
+  .orange-bg {
+    background-image: url('../assets/orange.jpg')
+  }
+
+  .orange-bg-2 {
+    background-color: #fdc53d;
+  }
+
+  .black-sc {
+    color: black !important;
+
+  }
+
+
+
+  .orange-border {
+    border: 2px solid #fdc53d;
+  }
+
+  .orange-bg-3 {
+    background-color: #dfad33;
   }
 
   .bg-cubes:before {
@@ -77,5 +108,43 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .landing-section {
+    background-image: url('../assets/bg-land.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: calc(100vh - 64px);
+  }
+
+  .blue-bg {
+    background-color: #1a5f80;
+  }
+
+  .light-blue-bg {
+    background-color: #d6e1e6;
+  }
+
+  .cree {
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .non {
+    display: none;
+  }
+
+  .cree-2 {
+
+    @media (max-width: 500px) {
+      display: flex;
+    }
+  }
+
+  .border-thin {
+    border: 1px solid gray;
   }
 }

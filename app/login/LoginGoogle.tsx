@@ -19,12 +19,14 @@ const LoginGoogle = () => {
     try {
       setSubmitting(true);
 
-      const result = await signIn('google', {
-        // redirect: true,
-        // callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
-      })
-      console.log('signed in with Google result', result)
+      signIn('google', { callbackUrl: 'http://localhost:3000/issues/list' })
+      // redirect: true,
+      // callbackUrl: 'https://issue-tracker-reborn.vercel.app/'
+
+      // console.log('signed in with Google result', result)
       // router.push('/issues/list')
+      // setSubmitting(false);
+
     } catch (error) {
       console.log('erros when submitting the login form', error)
       setSubmitting(false);
@@ -35,7 +37,7 @@ const LoginGoogle = () => {
   return (
     <button
       onClick={handleSubmit}
-      className="button-link-google mx-auto block w-64 mt-3"
+      className="button-link-google mx-auto block w-64 mt-3 shadow-sm shadow-gray-400"
       type="submit"
     >
       <Flex gap='3' align='center' justify='center'>

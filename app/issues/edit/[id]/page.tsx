@@ -6,8 +6,8 @@ import IssueFormSkeleton from './loading';
 
 const IssueForm = dynamic(
   () => import('@/app/issues/_components/IssueForm'),
-  { 
-    ssr: false, 
+  {
+    ssr: false,
     loading: () => <IssueFormSkeleton />
   }
 )
@@ -18,13 +18,17 @@ interface Props {
 
 const EditIssuePage = async ({ params }: Props) => {
   const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id)}
+    where: { id: parseInt(params.id) }
   });
 
   if (!issue) notFound();
 
   return (
-    <IssueForm issue={issue} />
+    <section className='landing-section'>
+
+      <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
+        <IssueForm issue={issue} />
+      </div></section>
   )
 }
 

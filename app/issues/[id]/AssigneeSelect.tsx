@@ -5,15 +5,17 @@ import { Issue, User } from "@prisma/client";
 import { Select } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
+  const router = useRouter()
+
   const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton />;
 
   if (error) return null;
-
   const assignIssue = (userId: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
@@ -22,6 +24,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       .catch(() => {
         toast.error("Changes could not be saved.");
       });
+    router.refresh();
   };
 
   return (
@@ -29,9 +32,10 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       <Select.Root
         defaultValue={issue.assignedToUserId || ""}
         onValueChange={assignIssue}
+
       >
         <Select.Trigger placeholder="Assign..." />
-        <Select.Content>
+        <Select.Content className="--radix-select-content-available-width">
           <Select.Group>
             <Select.Label>Suggestions</Select.Label>
             <Select.Item value="">Unassigned</Select.Item>

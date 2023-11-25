@@ -3,7 +3,7 @@ import IssueFormSkeleton from "./loading";
 
 const IssueForm = dynamic(
   () => import('@/app/issues/_components/IssueForm'),
-  { 
+  {
     ssr: false,
     loading: () => <IssueFormSkeleton />
   }
@@ -11,7 +11,15 @@ const IssueForm = dynamic(
 
 const NewIssuePage = () => {
   return (
-    <IssueForm />
+    <section className='landing-section'>
+
+      <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
+        <IssueForm />
+      </div>
+    </section>
+
+
+
   )
 }
 

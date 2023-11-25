@@ -50,7 +50,7 @@ const PieC = ({ open, inProgress, closed }: Props) => {
     );
   };
   return (
-    <Card className='h-52 w-full'>
+    <Card className='h-48 w-full'>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie

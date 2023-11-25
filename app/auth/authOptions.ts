@@ -41,11 +41,15 @@ const authOptions: NextAuthOptions = {
   theme: {
     colorScheme: "light", // "auto" | "dark" | "light"
     brandColor: "#265d2d", // Hex color code
-    logo: 'https://wallpapercave.com/wp/wp4291093.jpg', // Absolute URL to image
+    // logo: 'https://wallpapercave.com/wp/wp4291093.jpg', // Absolute URL to image
     buttonText: "#265d2d" // Hex color code
   },
   pages: {
     signIn: '/login',
+    error: '/auth/signin',
+  },
+  callbacks: {
+
   }
 };
 

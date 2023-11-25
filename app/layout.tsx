@@ -28,9 +28,9 @@ export default function RootLayout({
       <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
-            <Theme accentColor="violet">
+            <Theme appearance="light" accentColor="amber">
               <NavBar />
-              <main className="max-w-6xl pt-10 mx-auto">
+              <main className="">
                 <div>{children}</div>
               </main>
               {/* <ThemePanel /> */}

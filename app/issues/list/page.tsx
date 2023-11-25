@@ -23,7 +23,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
     : undefined;
 
   const page = parseInt(searchParams.page) || 1;
-  const pageSize = 8;
+  const pageSize = 10;
 
   const issues = await prisma.issue.findMany({
     where,
@@ -35,15 +35,20 @@ const IssuesPage = async ({ searchParams }: Props) => {
   const issueCount = await prisma.issue.count({ where });
 
   return (
-    <Flex direction="column" gap="3">
-      <IssueActions />
-      <IssueTable searchParams={searchParams} issues={issues} />
-      <Pagination
-        pageSize={pageSize}
-        currentPage={page}
-        itemCount={issueCount}
-      />
-    </Flex>
+    <section className='landing-section'>
+      <div className='max-w-6xl pt-10 mx-auto'>
+        <Flex direction="column" gap="3">
+          <IssueActions />
+          <IssueTable searchParams={searchParams} issues={issues} />
+          <Pagination
+            pageSize={pageSize}
+            currentPage={page}
+            itemCount={issueCount}
+          />
+        </Flex>
+      </div>
+    </section>
+
   );
 };
 
