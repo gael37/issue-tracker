@@ -163,11 +163,23 @@ body {
     background-position: center;
   }
 
-  /* @media (min-width: 1024px) {
+  @media (min-width: 1024px) {
     .landing-section-home {
-      height: calc(100vh - 20px);
+      height: calc(100vh - 64px);
     }
-  } */
+  }
+
+  @media (min-width: 1024px) {
+    .landing-section-list {
+      height: calc(100vh - 64px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .landing-section-dashboard {
+      height: calc(100vh - 64px);
+    }
+  }
 
   .blue-bg {
     background-color: #1a5f80;
