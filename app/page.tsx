@@ -29,7 +29,7 @@ const landingPage = () => {
     'Sign up with Google'
   ]
   return (
-    <section className='landing-section-home lg:landing-section'>
+    <section className='landing-section-home'>
 
       <div className='max-w-6xl pt-6 md:pt-24 mx-auto pl-5 pr-5'>
         <Grid columns={{ initial: '1', md: '2' }} gap="5" justify='start' className='mt-1'>
