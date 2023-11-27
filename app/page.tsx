@@ -23,10 +23,10 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const landingPage = () => {
 
   const features: string[] = [
-    'Gated Content',
-    'Update and Assign Issues',
-    'Sort issues',
-    'Dashboard Overview'
+    'Sort and update issues',
+    'Assignments',
+    'Statistical overview',
+    'Sign up with Google'
   ]
   return (
     <section className='landing-section-home lg:landing-section'>
@@ -36,8 +36,7 @@ const landingPage = () => {
           <Flex direction="column" gap="6" align={'start'} className='justify-start text-white'	>
             <Heading size='8'>Track and assign issues within your team</Heading>
             <Text size='5'>
-              With IssueHub, easily keep track of issues within your team and control with assigments and updates.
-              With IssueHub, easily keep track of issues within your team and control with assigments and updates.
+              With this issue tracker, easily keep track of what problem your team is working on. Have a better control on issue handling using updating, assigning, and sorting features in a secured way.
 
             </Text>
             <Heading>Features</Heading>
@@ -51,37 +50,28 @@ const landingPage = () => {
           </Flex >
 
 
-          <div>
-            <Flex direction="column" gap="6" align={'start'} className=''>
-              <Flex gap='9' className='h-80 w-full'>
-                <Image src={image18} width={300} height={400} alt='image 18' />
-                <Flex direction="column" gap="6" align={'start'} className='justify-start h-80 '>
-                  <Image src={image21} width={100} height={200} alt='image 21 ' className='' />
-                  <Image src={image19} width={500} height={600} alt='image 19' className='pl-5 ' />
-                  <Image src={image23} width={80} height={20} alt='image 23' className='pl-5 ' />
 
-                </Flex>
+          <Flex direction="column" gap="6" align={'start'} className=''>
+
+            <Flex gap='9' className='mt-5 lg:mt-0 lg:h-80 w-full flex-wrap lg:flex-nowrap'>
+              <Image src={image18} width={300} height={400} alt='image 18' />
+              <Flex direction="column" gap="6" align={'start'} className='justify-start h-80 '>
+                <Image src={image21} width={100} height={200} alt='image 21 ' className='' />
+                <Image src={image19} width={500} height={600} alt='image 19' className='pl-5 ' />
+                <Image src={image23} width={80} height={20} alt='image 23' className='pl-5 ' />
               </Flex>
-
-
             </Flex>
 
-            <Flex gap='7' justify='start' direction='column' className='mt-10'>
-              { }
-              <Text className='text-white' size='3'>
-                Create your account now to to post your own issue, or simply browse through the list and the dashboard to have a visual overview of how they are currently handled.
+            <Text className='text-white mt-16 sm:mt-36 lg:mt-0' size='4'>
+              Create your account now and post your first issue, browse through the list and visit the dashboard for a statistical overview of the current issues handling.
+            </Text>
 
-              </Text>
-              <button className='button-link-2 self-center mb-5'>
-                <Link href='/issues/list'>Get Started</Link>
-              </button>
+            <button className='button-link-2 self-center mb-5'>
+              <Link href='/issues/list'>Get Started</Link>
+            </button>
 
+          </Flex>
 
-              {/* <button className='button-link-2 self-center mt-16'>
-                <Link href='/login'>Login</Link>
-              </button> */}
-            </Flex>
-          </div>
 
 
 

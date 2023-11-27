@@ -44,11 +44,11 @@ const RegistrationForm: React.FC = () => {
   return (
     <section className='landing-section'>
       <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
-        <div className="gap-5 border-2 rounded-2xl p-8  flex flex-col items-center justify-center w-80 mx-auto from-slate-100 to-slate-200 bg-gradient-to-b"
+        <div className="gap-5 border-2 rounded-2xl p-8  flex flex-col items-center justify-center w-68 sm:w-80 mx-auto from-slate-100 to-slate-200 bg-gradient-to-b"
         >
           <form
             onSubmit={handleSubmit}
-            className='w-64 mx-auto mb-2'
+            className='w-52 sm:w-64 mx-auto mb-2'
           >
             <div className="mb-4">
               <label className="block text-black text-sm font-bold mb-2" htmlFor="name">

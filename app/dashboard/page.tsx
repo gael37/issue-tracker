@@ -21,16 +21,16 @@ export default async function Home() {
   return (
     <>
       <section className='landing-section-dashboard'>
-        <div className='max-w-6xl  mx-auto p-5 pt-24'>
+        <div className='max-w-6xl  mx-auto p-5 pt:10 lg:pt-24'>
           <Grid columns={{ initial: '1', md: '2' }} gap="5" justify='start' className='mt-1'>
-            <Flex direction="column" gap="5" align={'center'} className='justify-start'	>
+            <Flex direction="column" gap="5" align={'center'} className='justify-start order-last lg:order-first'	>
 
 
               <LatestIssues />
               {/* <Image src={joli} alt='programming' className='rounded-2xl w-3/4 h-3/4' /> */}
 
             </Flex>
-            <Flex direction="column" gap="5">
+            <Flex direction="column" gap="5" className='order-first lg:order-last'>
 
               <IssueChart
                 open={open}

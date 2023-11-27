@@ -37,7 +37,7 @@ const LoginGoogle = () => {
   return (
     <button
       onClick={handleSubmit}
-      className="button-link-google mx-auto block w-64 mt-3 shadow-sm shadow-gray-400"
+      className="button-link-google mx-auto block w-52 sm:w-64 mt-3 shadow-sm shadow-gray-400"
       type="submit"
     >
       <Flex gap='3' align='center' justify='center'>

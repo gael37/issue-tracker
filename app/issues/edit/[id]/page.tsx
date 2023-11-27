@@ -26,7 +26,7 @@ const EditIssuePage = async ({ params }: Props) => {
   return (
     <section className='landing-section'>
 
-      <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
+      <div className='max-w-6xl pt-5 lg:pt-24 mx-auto pl-5 pr-5'>
         <IssueForm issue={issue} />
       </div></section>
   )

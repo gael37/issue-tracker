@@ -42,11 +42,11 @@ const LoginPage: React.FC = () => {
     <section className='landing-section'>
       <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
 
-        <div className="gap-5 border-2 rounded-2xl p-8  flex flex-col items-center justify-center w-80 mx-auto from-slate-100 to-slate-200 bg-gradient-to-b"
+        <div className="gap-5 border-2 rounded-2xl p-8  flex flex-col items-center justify-center w-68 sm:w-80 mx-auto from-slate-100 to-slate-200 bg-gradient-to-b"
         >
           <form
             // onSubmit={handleSubmit}
-            className='w-64 mb-3 mx-auto block'
+            className='w-52 sm:w-64 mb-3 mx-auto block'
           >
 
             <div className="mx-auto w-full">
@@ -85,7 +85,7 @@ const LoginPage: React.FC = () => {
           </form>
           <LoginGoogle />
           <Flex align='center' gap='2'>
-            <p className='text-black'>Not an account yet?</p>
+            <p className='text-black text-center'>Not an account yet?</p>
             <Link href='/register' className='link-2'>Register</Link>
           </Flex>
         </div>

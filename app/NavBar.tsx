@@ -41,6 +41,11 @@ const NavBar = () => {
     { label: "Dashboard", href: "/dashboard" },
     { label: "Issues", href: "/issues/list" },
   ];
+
+  const style = { color: '#165272' }
+  function onClick() {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+  }
   return (
     <nav className="bg-slate-200 px-5">
       <Container className="">
@@ -49,12 +54,13 @@ const NavBar = () => {
             <DropdownMenu.Root>
               <DropdownMenu.Trigger>
                 <Flex align='center' gap='2' className="hover:cursor-pointer">
-                  <LuMenuSquare size='40' />
+                  <LuMenuSquare size='40' style={style} />
                 </Flex>
               </DropdownMenu.Trigger>
               <DropdownMenu.Content>
                 <DropdownMenu.Item>
                   <Link
+                    onClick={onClick}
                     className={classnames({
                       "": true,
                       "!text-blue-900": "/" === currentPath,
@@ -67,6 +73,7 @@ const NavBar = () => {
                 {links.map((link) => (
                   <DropdownMenu.Item key={link.href}>
                     <Link
+                      onClick={onClick}
                       className={classnames({
                         "": true,
                         "!text-blue-900": link.href === currentPath,

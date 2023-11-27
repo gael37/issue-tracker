@@ -41,15 +41,15 @@ body {
   }
 
   .button-link-3 {
-    @apply text-black orange-bg-2 hover:orange-bg-3 px-5 py-2 shadow-md shadow-gray-600 rounded-md text-sm font-medium active:scale-90;
+    @apply text-black active:shadow-none orange-bg-2 hover:orange-bg-3 px-5 py-2 shadow-md shadow-gray-600 rounded-md text-sm font-medium;
   }
 
   .button-link-login {
-    @apply text-black border-2 border-gray-800 bg-white hover:orange-bg-2 px-4 py-3 rounded-xl text-base font-medium;
+    @apply text-black border-2 border-gray-800 bg-white hover:bg-slate-200 active:shadow-none px-4 py-3 rounded-xl text-base font-medium;
   }
 
   .button-link-google {
-    @apply text-black border-2 border-black bg-white hover:orange-bg-2 px-4 py-3 rounded-xl text-base font-medium;
+    @apply text-black border-2 border-black bg-white active:shadow-none hover:bg-slate-200 px-4 py-3 rounded-xl text-base font-medium;
   }
 
   .button-table {
@@ -62,6 +62,10 @@ body {
 
   .button-link-new {
     @apply text-white orange-bg hover:bg-violet-700 px-4 py-2 rounded-lg text-base font-medium active:scale-90;
+  }
+
+  .blue-custom {
+    background-color: #247ca2;
   }
 
   .button-link-bigger {
@@ -117,7 +121,7 @@ body {
     background-position: center;
     width: 100vw;
     /* height: calc(100vh - 64px); */
-    height: 130vh;
+    height: 120vh;
   }
 
   .landing-section-home {
@@ -127,7 +131,7 @@ body {
     background-position: center;
     width: 100vw;
     /* height: calc(100vh - 64px); */
-    height: 140vh;
+    height: 130vh;
   }
 
   .landing-section-list {
@@ -165,11 +169,11 @@ body {
     background-color: #d6e1e6;
   }
 
-  .cree {
+  /* .cree {
     @media (max-width: 500px) {
       display: none;
     }
-  }
+  } */
 
   .non {
     display: none;
