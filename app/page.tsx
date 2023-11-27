@@ -3,18 +3,11 @@ import Image from 'next/image';
 import React from 'react'
 import { RxCheckCircled } from "react-icons/rx";
 import valid from '@/assets/valid.png'
-import image12 from '@/assets/image 12.png'
-import image13 from '@/assets/image 13.png'
-import image14 from '@/assets/image 14.png'
-import image16 from '@/assets/image 16.png'
 import image18 from '@/assets/image 18.png'
 import image19 from '@/assets/image 19.png'
-import image20 from '@/assets/image 20.png'
 import image21 from '@/assets/image 21.png'
-import image22 from '@/assets/image 22.png'
 import image23 from '@/assets/image23.png'
 import Link from 'next/link';
-import { FaArrowRightLong } from "react-icons/fa6";
 
 
 
@@ -29,7 +22,7 @@ const landingPage = () => {
     'Sign up with Google'
   ]
   return (
-    <section className='landing-section-home'>
+    <div className='landing-section-home'>
 
       <div className='max-w-6xl pt-6 md:pt-24 mx-auto pl-5 pr-5'>
         <Grid columns={{ initial: '1', md: '2' }} gap="5" justify='start' className='mt-1'>
@@ -78,7 +71,7 @@ const landingPage = () => {
 
         </Grid>
       </div>
-    </section>
+    </div>
   )
 }
 

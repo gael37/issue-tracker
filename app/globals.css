@@ -152,7 +152,7 @@ body {
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: 300vh;
+    height: calc(100vh + 2000px);
     padding-bottom: 20px;
   }
 
