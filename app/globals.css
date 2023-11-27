@@ -133,7 +133,7 @@ body {
     background-position: center;
     width: 100vw;
     /* height: calc(100vh - 64px); */
-    height: 130vh;
+    height: 120vh;
   }
 
   .landing-section {
@@ -152,7 +152,7 @@ body {
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: calc(100vh + 800px);
+    height: calc(100vh + 900px);
     padding-bottom: 20px;
   }
 
