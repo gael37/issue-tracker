@@ -31,7 +31,7 @@ const landingPage = () => {
   return (
     <section className='landing-section-home lg:landing-section'>
 
-      <div className='max-w-6xl pt-10 md:pt-24 mx-auto pl-5 pr-5'>
+      <div className='max-w-6xl pt-4 md:pt-24 mx-auto pl-5 pr-5'>
         <Grid columns={{ initial: '1', md: '2' }} gap="5" justify='start' className='mt-1'>
           <Flex direction="column" gap="6" align={'start'} className='justify-start text-white'	>
             <Heading size='8'>Track and assign issues within your team</Heading>
