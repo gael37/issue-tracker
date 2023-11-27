@@ -134,15 +134,7 @@ body {
     height: 120vh;
   }
 
-  .landing-section {
-    background-image: url('../assets/bg-land.avif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    min-height: calc(100vh - 20px);
-    padding-bottom: 20px;
-  }
+
 
   .landing-section-home {
     background-image: url('../assets/bg-land.avif');
@@ -154,6 +146,16 @@ body {
     padding-bottom: 20px;
   }
 
+  .landing-section {
+    background-image: url('../assets/bg-land.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    min-height: calc(100vh - 64px);
+    padding-bottom: 20px;
+  }
+
   .beautiful-bg {
     background-image: none;
     background-repeat: no-repeat;
@@ -161,11 +163,11 @@ body {
     background-position: center;
   }
 
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     .landing-section-home {
       height: calc(100vh - 20px);
     }
-  }
+  } */
 
   .blue-bg {
     background-color: #1a5f80;
