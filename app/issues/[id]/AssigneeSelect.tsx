@@ -12,7 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter()
-  const session = useSession()
+  const { data: session } = useSession()
   const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton />;
