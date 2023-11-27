@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className='landing-section'>
+      <section className='landing-section-list lg:landing-section'>
         <div className='max-w-6xl  mx-auto p-5 pt:10 lg:pt-24'>
           <Grid columns={{ initial: '1', md: '2' }} gap="5" justify='start' className='mt-1'>
             <Flex direction="column" gap="5" align={'center'} className='justify-start order-last lg:order-first'	>
