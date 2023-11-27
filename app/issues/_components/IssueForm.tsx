@@ -84,7 +84,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
           </Callout.Root>
         )}
         <form className="space-y-5" onSubmit={onSubmit}>
-          <Heading className='text-white mb-10' size='7'>Describe your issue</Heading>
+          <Heading className='text-white mb-6 lg:mb-10' size='7'>Describe your issue</Heading>
 
           <TextField.Root>
             <TextField.Input

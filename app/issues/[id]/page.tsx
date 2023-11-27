@@ -26,16 +26,14 @@ const IssueDetailPage = async ({ params }: Props) => {
     <section className='landing-section'>
 
       <div className='max-w-6xl pt-24 mx-auto pl-5 pr-5'>
-        <Flex gap='5' className=''>
-          <Heading className='text-white hidden sm:block'>Assign to:</Heading>
-          {session && (
+        {session && (
+          <Flex gap='5' className=''>
+            <Heading className='text-white hidden sm:block'>Assign to:</Heading>
             <div className=' light-blue-bg rounded-md inline-block mb-10 '>
               <AssigneeSelect issue={issue} />
-
             </div>
-          )
-          }
-        </Flex>
+          </Flex>
+        )}
 
         <Grid columns={{ initial: '1', sm: '5' }} gap="5">
 

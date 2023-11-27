@@ -13,7 +13,7 @@ const NewIssuePage = () => {
   return (
     <section className='landing-section'>
 
-      <div className='max-w-6xl pt-10 lg:pt-24 mx-auto pl-5 pr-5'>
+      <div className='max-w-6xl pt-6 lg:pt-24 mx-auto pl-5 pr-5'>
         <IssueForm />
       </div>
     </section>
