@@ -53,7 +53,7 @@ body {
   }
 
   .button-table {
-    @apply bg-gray-200 rounded-2xl py-1 px-4;
+    @apply bg-gray-200 rounded-2xl py-1 px-4 hover:bg-gray-300;
   }
 
   /* .rt-reset-a {
