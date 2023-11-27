@@ -5,18 +5,21 @@ import { Issue, User } from "@prisma/client";
 import { Flex, Heading, Select, Text } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter()
-
+  const session = useSession()
   const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton />;
 
   if (error) return null;
+
+  if (!session) return null
   const assignIssue = (userId: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
