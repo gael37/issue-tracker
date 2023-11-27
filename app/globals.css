@@ -150,8 +150,8 @@ body {
     background-size: cover;
     background-position: center;
     width: 100vw;
-    /* height: calc(100vh - 64px); */
-    /* height: 130vh; */
+    min-height: calc(100vh - 20px);
+    padding-bottom: 20px;
   }
 
   .beautiful-bg {
