@@ -12,11 +12,11 @@ import toast, { Toaster } from "react-hot-toast";
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter()
 
-  // const { data: users, error, isLoading } = useUsers();
+  const { data: users, error, isLoading } = useUsers();
 
-  // if (isLoading) return <Skeleton />;
+  if (isLoading) return <Skeleton />;
 
-  // if (error) return null;
+  if (error) return null;
   const assignIssue = (userId: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
@@ -28,21 +28,21 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
     router.refresh();
   };
 
-  const [users, setUsers] = useState<any[]>([])
+  // const [users, setUsers] = useState<any[]>([])
 
-  const getUsers = async () => {
-    try {
-      const { data } = await axios.get('/api/users')
-      console.log(data)
-      setUsers(data)
-    } catch (error) {
-      console.log(error)
-    }
+  // const getUsers = async () => {
+  //   try {
+  //     const { data } = await axios.get('/api/users')
+  //     console.log(data)
+  //     setUsers(data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
 
-  }
-  useEffect(() => {
-    getUsers()
-  }, [])
+  // }
+  // useEffect(() => {
+  //   getUsers()
+  // }, [])
 
 
   return (
@@ -70,13 +70,13 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   );
 };
 
-// const useUsers = () =>
-//   useQuery<User[]>({
-//     queryKey: ["users"],
-//     queryFn: () =>
-//       axios.get("/api/users").then((res) => res.data),
-//     staleTime: 60 * 1000, //60s
-//     retry: 3,
-//   });
+const useUsers = () =>
+  useQuery<User[]>({
+    queryKey: ["users"],
+    queryFn: () =>
+      axios.get("/api/users").then((res) => res.data),
+    staleTime: 60 * 1000, //60s
+    retry: 3,
+  });
 
 export default AssigneeSelect;
