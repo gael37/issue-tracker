@@ -1,16 +1,19 @@
-## Getting Started
+This web app is called Issue Tracker.
 
-This is the completed source code for the issue tracker project we build in my Ultimate Next.js series. You can find the full course here:
+##What it does:
+Enables a team (of developers mainly) to work on issues by:
+-Assigning them to their tean members
+-Create new ones
+-Update existing ones
+-Deletes ones
+-Viewing a statistical/log overview of issues handling overtime.
 
-https://codewithmosh.com/p/ultimate-nextjs-series
-
-To get started, follow these steps:
-
-1. Clone this repository to your local machine. 
-2. In the project folder, rename **.env.example** to **.env** (no period after). 
-3. Set **all** the environment variables according to the instructions I've included in the file. If you don't set them properly, the application is not going to work.
-4. Run `npm install` to install the dependencies.
-5. Run `npx prisma migrate dev` to generate your database tables.
-6. Run `npm run dev` to start the web server. 
+##This project was built using the following technologies:
+-Next.js
+-Typescript
+-Prisma
+-MySQL
+-RadixUI
+-Tailwind
 
 
