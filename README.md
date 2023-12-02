@@ -5,7 +5,7 @@ Enables a team to work on issues by:
 
 -Creating, updating, deleting, assigning issues
 
--Viewing stats of issue handling
+-Viewing stats on issues handling
 
 ## This project was built using the following technologies:
 
