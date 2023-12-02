@@ -29,9 +29,9 @@ I used NextAuth.
 Users can login with credentials or Google.
 I was unsatisfied with the user exeperience of bare NextAuth login page so I customised it using a simple React Form component.
 
-### Regarding UX
+### Regarding UX/UI
 
-I tried to implement as many loading spinners/skeletons as I could.
+I tried to implement as many loading spinners/skeletons as I could, and the app is fully responsive.
 
 ## Why this project? Challenges?
 
