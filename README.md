@@ -31,7 +31,7 @@ I was unsatisfied with the user experience of bare NextAuth login page so I cust
 
 ### Regarding UX/UI
 
-I tried to implement as many loading spinners/skeletons as I could, and the app is fully responsive.
+I tried to implement as many loading spinners/skeletons as I could and the app is fully responsive.
 
 ## Why this project? Challenges?
 
