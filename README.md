@@ -35,7 +35,7 @@ I tried to implement as many loading spinners/skeletons as I could and the app i
 
 ## Why this project? Challenges?
 
-I built this app to familiarize myself with technologies that I never worked on, with including Next.js, TypeScript, Authentication library, Tailwind, UI library, MySQL, Prisma.
+I built this app to familiarize myself with technologies that I never worked on, including Next.js, TypeScript, an authentication library, Tailwind, a UI library, MySQL, Prisma.
 It was a challenge to discover and work on all of these new tools at once and I learnt a lot from it.
 I won't touch this project again, it was for practice purposes.
 My next project will use Next.js and TypeScript again so I can practice deeper.
