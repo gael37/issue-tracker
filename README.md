@@ -1,17 +1,17 @@
 This web app is called Issue Tracker.
 
 ## What it does:
-Enables a team (of developers mainly) to work on issues by:
+Enables a team to work on issues:
 
--Assigning them to their tean members
+-Assigning issues
 
--Create new ones
+-Creating issues
 
--Update existing ones
+-Update issues
 
--Deletes ones
+-Deletes issues
 
--Viewing a statistical/log overview of issues handling overtime.
+-Viewing stats on issue handling
 
 ## This project was built using the following technologies:
 
